@@ -76,7 +76,7 @@ def dfa_gen_seqs(dfa):
     for (state, symbol), new_state in dfa.delta.items():
         transitions[state].append((new_state, symbol))
     while True:
-        yield dfa_gen_seq(dfa)
+        yield dfa_gen_seq(dfa, transitions)
 
 
 dfa1 = DFA({0, 1, 2}, {'a','b'}, {(0,'a'):1, (0,'b'):2, (1,'a'):2}, 0, {2})
