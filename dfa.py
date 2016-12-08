@@ -38,7 +38,7 @@ def dfa_remove_explicit_sink_states(dfa):
     # as the dfa has a start and (multiple) ends,
     # we can start at the end and work backwards.
     # if a state p points to an element in F, but p is not
-    # reachable when starting at q0 then we throw an error
+    # reachable when starting at q0 then we ignore it
 
     stack = list(dfa.F)
     valid = set() # valid visited states
