@@ -1,6 +1,7 @@
 from collections import namedtuple, defaultdict
 import random
 from itertools import islice
+from fa_types import DFA
 
 # a dfa is a 5-tuple
 # (Q, sigma, delta, q0, F) where
@@ -9,8 +10,6 @@ from itertools import islice
 # delta : Q x sigma -> Q (transition function)
 # q0 is the start state (an element in Q)
 # F is a set of accept states (F \subseteq Q)
-
-DFA = namedtuple('DFA', ['Q', 'Sigma', 'delta', 'q0', 'F'])
 
 def dfa_run(dfa, seq):
     state = dfa.q0
