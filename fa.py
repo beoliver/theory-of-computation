@@ -1,7 +1,4 @@
-from collections import namedtuple
 from dfa import dfa_run
-
-FA = namedtuple('FA', ['Q', 'Sigma', 'delta', 'q0', 'F', 'type'])
 
 def run_as_dfa(fa, seq):
     state = fa.q0
