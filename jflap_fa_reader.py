@@ -1,6 +1,6 @@
 from collections import defaultdict
 from xml.dom import minidom
-from fa import FA
+from fa_types import FA
 
 def get_source_node(t):
     return t.getElementsByTagName('from')[0].firstChild.nodeValue
