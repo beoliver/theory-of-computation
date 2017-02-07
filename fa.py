@@ -16,6 +16,6 @@ def run_as_dfa(fa, seq):
 
 def run(fa, input):
     if fa.type is 'DFA':
-        print run_as_dfa(fa, input)
+        return run_as_dfa(fa, input)
     else:
-        print "NFA not yet working"
+        return "NFA not yet working"
