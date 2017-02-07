@@ -1,4 +1,3 @@
-
 from collections import namedtuple, defaultdict
 import random
 from itertools import islice
