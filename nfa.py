@@ -1,10 +1,7 @@
 from collections import namedtuple, defaultdict
 import random
 import itertools
-from dfa import DFA
-
-NFA = namedtuple('NFA', ['Q', 'Sigma', 'delta', 'q0', 'F'])
-
+from fa_types import DFA, NFA
 
 def nfa_gen_seq(nfa, transitions=None, min_len=0, max_len=50):
     # min,max not implemented
