@@ -1,11 +1,15 @@
 import sys
 from xml.dom import minidom
-from jflap_dfa_reader import dfa_from_jflapxml
-from dfa import dfa_run
+from jflap_fa_reader import fa_from_jflapxml
+from fa import run
 
 if __name__ == '__main__':
     f = sys.argv[1]
     xmldoc = minidom.parse(f)
-    dfa = dfa_from_jflapxml(xmldoc)
-    test_input = sys.argv[2]
-    print dfa_run(dfa, test_input)
+    fa = fa_from_jflapxml(xmldoc)
+    t = sys.argv[2]
+    if t.upper() != fa.type:
+        print f + " is not of type " + t
+        sys.exit()
+    test = sys.argv[3]
+    print run(fa, test)

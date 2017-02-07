@@ -1,9 +1,6 @@
-from collections import namedtuple, defaultdict
+from collections import defaultdict
 from xml.dom import minidom
-from dfa import DFA
-from nfa import NFA
-
-FA = namedtuple('FA', ['Q', 'Sigma', 'delta', 'q0', 'F', 'type'])
+from fa import FA
 
 def get_source_node(t):
     return t.getElementsByTagName('from')[0].firstChild.nodeValue
@@ -63,8 +60,8 @@ def fa_from_jflapxml(xmldoc):
     alphabet = set(c for (_,c) in transitions.keys())
     states, q0, final_states = get_states(xmldoc)
     fa_type = 'DFA'
-    for (state,symbol),transitions in transitions.items():
-        if (len(transition) > 1) or symbol is None:
+    for (state,symbol),t in transitions.items():
+        if (len(t) > 1) or symbol is None:
             fa_type = 'NFA'
             break
     return FA(states, alphabet, transitions, q0, final_states, fa_type)
